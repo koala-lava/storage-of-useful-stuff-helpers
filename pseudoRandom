@@ -1,3 +1,9 @@
+/** 
+* This @generator is useful in tests were you may need generated sequences of pseudo-random numbers. 
+* @param {number}
+* @yield {number}
+*/
+
 function* pseudoRandom(seed) {
   let value = seed;
 
