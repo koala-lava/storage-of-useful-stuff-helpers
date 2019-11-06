@@ -1,0 +1,15 @@
+function* pseudoRandom(seed) {
+  let value = seed;
+
+  while(true) {
+    value = value * 23024 % 248247273
+    yield value;
+  }
+
+};
+
+let generator = pseudoRandom(1);
+
+console.log(generator.next().value); // 23024
+console.log(generator.next().value); // 33610030
+console.log(generator.next().value); // 50580779
