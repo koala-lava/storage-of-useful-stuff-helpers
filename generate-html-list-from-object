@@ -1,0 +1,41 @@
+<body>
+  <div id="container"></div>
+  <script type="module">
+    let data = {
+      "Fish": {
+        "trout": {},
+        "salmon": {}
+      },
+
+      "Tree": {
+        "Huge": {
+          "sequoia": {},
+          "oak": {}
+        },
+        "Flowering": {
+          "apple tree": {},
+          "magnolia": {}
+        }
+      }
+    }
+    /**
+     * This recursion function generates html list from an object. 
+     * This was my solution to task from javascript.info
+    */
+    function createTree(container, data) {
+      if (Object.getOwnPropertyNames(data).length == 0) {
+        return;
+      }
+      let ul = document.createElement('ul');
+      container.append(ul);
+      for (let i in data) {
+        let li = document.createElement('li');
+        li.textContent = i;
+        ul.append(li);
+        createTree(ul, data[i]);
+      }
+    }
+    let container = document.getElementById('container');
+    createTree(container, data); // creates the tree in the container
+  </script>
+</body>
